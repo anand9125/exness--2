@@ -1,10 +1,5 @@
-import { createClient, type RedisClientType } from "redis"
-import { pool } from "./db/db";
-import { Data } from "./type";
-import  {createSchema}  from "./db/schema";
-import { createContinuousAggregates } from "./continous aggregates/candlestickview";
-
-
+import { createClient, RedisClientType } from "redis";
+import { pool } from "./db";
 export const pub: RedisClientType = createClient({
   url: process.env.redis_Url || "redis://localhost:6379",
 });
@@ -28,10 +23,3 @@ export async function connectredis(){
     );
  })
 }
-
-(async () => {
-  await createSchema(); 
-  await connectredis(); 
-  await createContinuousAggregates(); 
-})();
-

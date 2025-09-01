@@ -5,7 +5,7 @@ import { WSManager } from "./services/websocket";
 const WS_PORT = 8080;
 const REDIS_URL = "redis://localhost:6379";
 const BROADCAST_THROTTLE_MS = 200;
-const CANDLE_UPDATE_INTERVAL_MS = 1000;
+const CANDLE_UPDATE_INTERVAL_MS = 10;
 class Server{
     private wsManager:WSManager;
     private redisManager:RedisManager;
